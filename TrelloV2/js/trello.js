@@ -26,7 +26,7 @@ function agregarLista(){
 	//eventos que pertenecen al padre
 	divCaja.addEventListener("drop", soltar);
 	divCaja.addEventListener("dragover", arrastrarSobre);
-	divCaja.addEventListener("dragleave", dejarArrastar);
+	divCaja.addEventListener("dragleave", dejarArrastrar);
 
 	lista.insertBefore(divCaja,btnAgregar);
 	//llama a la funcion agregarTarjeta cuando se da click en el boton
@@ -71,7 +71,7 @@ function agregarLista(){
 				btnAnadir.setAttribute("class","btn btn-success");
 				btnAnadir.textContent = "Añadir";	
 				divCaja.insertBefore(txtTarjeta,btnTarjeta);
-				// divCaja.insertBefore(btnAnadir,btnTarjeta);
+				divCaja.insertBefore(btnAnadir,btnTarjeta);
 				//aqui debe guardar la tarjeta
 				btnAnadir.addEventListener("click",anadirTarjeta);
 				function anadirTarjeta(){	
@@ -82,7 +82,7 @@ function agregarLista(){
 						// divTarjeta.setAttribute("class","caja");
 						// divTarjeta.appendChild(inputNombre);
 						// divTarjeta.appendChild(btnEnviar);
-						// btnAnadir.parentNode.removeChild(btnAnadir);
+						btnAnadir.parentNode.removeChild(btnAnadir);
 					}
 				}
 			}
@@ -108,11 +108,15 @@ function agregarLista(){
 	}
 	//funcion llama al evento de arrastrar del textarea 
 	function terminaArrastrar(e){
-
+		e.target.style.backgroundColor = "#D467EF";
 	}
 	//funcion llama al evento de arrastrar del divCaja  
-	function dejarArrastar(e){
+	function dejarArrastrar(e){
+		e.target.style.backgroundColor = "red";
 
+		e.target.style.borderColor = "#A6D2EB";
+		e.target.style.borderStyle = "dashed";
+		e.target.style.border = "dashed";
 	}
 
 }
