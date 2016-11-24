@@ -39,6 +39,9 @@ h3{
 	display: inline-block;
 	margin: 10px;
 }
+input{
+	max-width: 100%;
+}
 /*estilo para cuando se hace drag&drop*/
 .rotate{
 	transform: rotate(250deg) scale(1);
